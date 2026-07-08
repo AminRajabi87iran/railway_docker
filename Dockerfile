@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir -p /var/run/sshd
 
 # Set your root password (CHANGE 'mysecurepassword' to your own!)
-RUN echo 'root:mysecurepassword' | chpasswd
+RUN echo 'root:AminRajabi87' | chpasswd
 
 # Configure SSH to allow root login using a password on port 22
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
