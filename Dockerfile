@@ -8,8 +8,8 @@ RUN apt-get update && apt-get install -y \
     netcat-openbsd \
     && rm -rf /var/lib/apt/lists/*
 
-# Configure the SSH daemon directory
-RUN mkdir /var/run/sshd
+# FIX: Added -p flag so it won't crash if the directory already exists
+RUN mkdir -p /var/run/sshd
 
 # Set your root password (CHANGE 'mysecurepassword' to your own!)
 RUN echo 'root:mysecurepassword' | chpasswd
