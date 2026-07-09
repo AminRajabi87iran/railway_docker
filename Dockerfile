@@ -1,17 +1,17 @@
-FROM ubuntu:latest
+FROM kalilinux/kali-rolling
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install standard SSH server and netcat (ultra-lightweight web binder)
+# Install standard SSH server and netcat using Kali's repositories
 RUN apt-get update && apt-get install -y \
     openssh-server \
     netcat-openbsd \
     && rm -rf /var/lib/apt/lists/*
 
-# FIX: Added -p flag so it won't crash if the directory already exists
+# Ensure the SSH runtime directory exists
 RUN mkdir -p /var/run/sshd
 
-# Set your root password (CHANGE 'mysecurepassword' to your own!)
+# Set your root password
 RUN echo 'root:AminRajabi87' | chpasswd
 
 # Configure SSH to allow root login using a password on port 22
