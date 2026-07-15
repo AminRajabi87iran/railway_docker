@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     openssh-server \
     netcat-openbsd \
+    sudo \
     && rm -rf /var/lib/apt/lists/*
 
 # Ensure the SSH runtime directory exists
